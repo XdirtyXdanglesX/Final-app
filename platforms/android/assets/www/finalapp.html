@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+        
+        
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Template</title>
+    <link rel="stylesheet" href="css/jquery.mobile.structure.css">
+    <link rel="stylesheet" href="css/jquery.mobile.theme.css">
+    <link rel="stylesheet" href="css/jquery.mobile.icons.css">
+    
+    <script src="cordova.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mobile.js"></script>
+    <script language= "javascript">
+        
+        
+        $(document).on('deviceready',deviceReady);
+        
+        function deviceReady(){  
+        }
+        
+        function updateStatus(){
+            var retrieve = {
+                action:'getMessage',
+                getMessage: $('#chatbox').val()
+                
+            }
+            $.post(server,retrieve,displayMessage);
+        }    
+        function login(form) {
+            if (form.id.value=="username") { 
+            if (form.pass.value=="Password") {              
+                location="page2.html" 
+            } else {
+            alert("Invalid Password")
+            }
+        } else {  alert("Invalid UserID")
+    }
+}
+
+    </script>
+    
+    <style>
+        section#updateStattus{
+            border:3px solid #2ad3ef;
+            min-width:100px;
+            text-align:left;
+            margin: auto;
+        }
+    
+        input#updateStatus{
+            border:3px solid #393939;
+            min-width:100px;
+            text-align:left;
+            margin: auto;
+        }
+            
+        input#posts{
+            border: 3px solid #ffffff;
+            min-width:100px;
+            text-align:left;
+            margin:auto;
+        }
+        
+        #popup{
+            border-color: #1d1d1d
+        }
+        
+        [data-role="page"] input {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <form action="register.php" method="post" >
+        
+    <input type = "text" name="username">
+        
+    </form>
+    
+   <div data-role="page" data-theme="b" id="signUp" data-position="fixed">
+        <div data-theme="b" data-role="header" id="signUp">
+            <h1>Pay in!</h1>
+            
+        </div>
+        <div data-role="content">
+    <br>
+    <br>
+   
+            <input type="text" name="username" id="username" placeholder="username" >
+            <input type="text" id="password" placeholder="Password">
+            <a data-role="button" href="#login" >Login</a>
+            <a data-role="button" href="#register">Register</a>
+            
+      
+        </div>
+   </div>
+   
+  
+
+    <div data-role="page" data-theme="b" id="register">
+        
+        <div data-role="header" data-theme="b" >
+            <h1>Pay in!</h1>
+        </div>
+        <div data-role="content">
+            <br>
+            <br>
+            <br>
+            <input type="text" id="First Name" placeholder="First Name">
+            <input type="text" id="Last Name" placeholder="Last Name">
+           
+    <h1></h1><form name="login"> <input
+        name="id" type="text" placeholder=Username>
+    <h1></h1><input name="pass"
+        type="password" placeholder=Password>
+    <a data-role="button" href="#" data-rel="back">
+        Sign up!
+    </a>
+            
+    </div>
+        <div data-theme="b"data-role="footer" data-position="fixed">
+            
+            <h1>Saulis' Creations</h1>
+        </div>
+    </div>
+    <div data-role="page" data-theme="b" id="friends">
+    
+        <div data-theme="b" data-role="header">
+            <h1>Pay in!</h1>
+        </div>
+        
+        <div data-role="content">
+            <ul data-role="listview">
+                <li>
+                    
+                </li>
+            </ul>
+            
+        </div>
+    
+        <div data-theme="b"data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+            
+                <ul>
+                        <li><a href="#feed"data-icon="home">Recent Winners</a></li>
+                        <li><a href="#friends" data-icon="heart">Up coming</a></li>
+                        <li><a href="#profile"data-icon="user">Profile</a></li>
+                </ul>
+                
+            </div> 
+            <h1>Saulis' Creations</h1>
+        </div>
+    </div>
+    <div data-role="page" data-theme="b" id="profile"data-position="fixed">
+        <div data-theme="b" data-role="header">
+            <h1>Pay in!</h1>
+        
+        <div data-role="content" style="text-align:center">
+            <img src="profilepic.jpg" height=100 width=100>
+            <br><br>Jake Saulis
+            </div>
+            
+        </div>
+       
+        
+        <div data-theme="b"data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#feed" data-icon="home">Recent Winners</a></li>
+                    <li><a href="#friends" data-icon="heart">Up coming</a></li>
+                    <li><a href="#profile" class="ui-btn-active" data-icon="user">Profile</a></li> 
+                </ul>
+                
+            </div> <!--/navbar -->
+            
+            <h1>Saulis' Creations</h1>
+        </div>
+    </div>
+    
+    </style>
+</body>
+</html> 

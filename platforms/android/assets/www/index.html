@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: * 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; connect-src *;">
+    <title>Project Template</title>
+    <link rel="stylesheet" href="css/jquery.mobile.structure.css">
+    <link rel="stylesheet" href="css/jquery.mobile.theme.css">
+    <link rel="stylesheet" href="css/jquery.mobile.icons.css">
+
+    <script src="cordova.js"></script>
+    <script src="fakebook.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mobile.js"></script>
+    <script language="javascript">
+        $(document).on('deviceready', deviceReady);
+
+        function deviceReady() {}
+
+        function updateStatus() {
+            var retrieve = {
+                action: 'getMessage',
+                getMessage: $('#chatbox').val()
+
+            }
+            $.post(server, retrieve, displayMessage);
+        }
+
+        function login(form) {
+            if (form.id.value == "username") {
+                if (form.pass.value == "Password") {
+                    location = "page2.html"
+                } else {
+                    alert("Invalid Password")
+                }
+            } else {
+                alert("Invalid UserID")
+            }
+        }
+    </script>
+
+    <style>
+        section#updateStattus {
+            border: 3px solid #2ad3ef;
+            min-width: 100px;
+            text-align: left;
+            margin: auto;
+        }
+        
+        input#updateStatus {
+            border: 3px solid #393939;
+            min-width: 100px;
+            text-align: left;
+            margin: auto;
+        }
+        
+        input#posts {
+            border: 3px solid #ffffff;
+            min-width: 100px;
+            text-align: left;
+            margin: auto;
+        }
+        
+        #popup {
+            border-color: #1d1d1d
+        }
+        
+        [data-role="page"] input {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- Sign In-->
+    <div data-role="page" data-theme="b" id="signIn" data-position="fixed">
+        <div data-theme="a" data-role="header" id="signIn">
+            <h1>Pay in!</h1>
+        </div>
+        <div data-role="content">
+                <input type="text" id="username" placeholder="Email" value="jakesaulis@live.ca">
+                <input type="password" id="password" placeholder="Password" value="12345">
+                <button onclick="signIn()">Sign In</button>
+                <button onclick="signUp()">Sign Up</button>
+                <div id="loadUser"></div>
+        </div>
+        <div data-theme="b" data-role="footer">
+        </div>
+    </div>
+<!--Sign Up--> 
+    <div data-role="page" data-theme="b" id="signUp" data-position="fixed">
+        <div data-theme="a" data-role="header" id="signUp">
+            <a data-rel="back" data-role="button" data-icon="arrow-l">Back</a>
+            <h1>Pay in!</h1>
+        </div>
+        <div data-role="content">
+                <input type="text" id="username" placeholder="Email" value="jakesaulis@live.ca">
+                <input type="password" id="password" placeholder="Password" value="12345">
+                <input type="password" id="pass2" placeholder="Confirm Password" value="12345">
+                <button onclick="register()">Register</button>
+                <div id="loadUser"></div>
+        </div>
+    </div>
+
+<!--Profile--> 
+    <div data-role="page" data-theme="b" id="profile" data-position="fixed">
+        <div data-theme="b" data-role="header">
+            <h1>Pay in!</h1>
+        </div>
+        <div data-role="content" style="text-align:center">
+            <img src="profilepic.jpg" height=100 width=100>
+            <br>
+            <br> Jake Saulis
+        </div>
+        
+        <div data-theme="b" data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#feed" data-icon="home">Recent Winners</a></li>
+                    <li><a href="#friends" data-icon="heart">Up coming</a></li>
+                    <li><a href="#profile" data-icon="user">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+<!--Friends-->     
+    <div data-role="page" data-theme="b" id="friends" data-position="fixed">
+        <div  data-theme="b" data-role="header">
+            <h1>Pay in!</h1>
+        </div>
+    
+        <div data-role="content">
+            <br>
+            <br>
+        </div>
+        <div data-theme="b" data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#feed" data-icon="home">Recent Winners</a></li>
+                    <li><a href="#friends" data-icon="heart">Up coming</a></li>
+                    <li><a href="#profile" data-icon="user">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+        
+<!--Feed-->
+
+<br>
+    <div data-theme="b" data-role="page" id="feed">
+        <div data-role="navbar">
+            <div data-role="header" data-theme="b">
+        <h1>Pay in!</h1>
+    <button onclick="Loadwinners">Load recent winners!</button>
+        <div data-theme="b" data-role="footer" data-position="fixed">
+            
+                <ul>
+                    <li><a href="#feed" data-icon="home">Recent Winners</a></li>
+                    <li><a href="#friends" data-icon="heart">Up coming</a></li>
+                    <li><a href="#profile" data-icon="user">Profile</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        
+            
+        </div>
+        <div data-role="content">
+            <img src="SIR.jpg" height=100 width=100>
+        </div>
+    </div>
+
+</body>
+
+</html>
